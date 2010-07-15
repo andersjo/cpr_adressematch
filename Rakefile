@@ -5,8 +5,11 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "cpr_adressematch"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{Interface for generating and parsing the Danish CPR Registry data files}
+    gem.description = %Q{Interface for generating and parsing the Danish CPR Registry data files.
+    Support the 'adressematch' protocol, which can be used to query by name and adress as well as
+    by the personal identifical number (CPR)
+    }
     gem.email = "anders@johannsen.com"
     gem.homepage = "http://github.com/andersjo/cpr_adressematch"
     gem.authors = ["Anders Johannsen"]
@@ -35,6 +38,15 @@ rescue LoadError
   task :rcov do
     abort "RCov is not available. In order to run rcov, you must: sudo gem install spicycode-rcov"
   end
+end
+
+desc "Generate classes from XML definition"
+task :generate do
+  $: << "./lib"
+  require 'cpr_adressematch'
+  require 'cpr/class_generator'
+  g = Cpr::ClassGenerator.new("adressematch", "data/adressematch.xml")
+  g.generate
 end
 
 task :test => :check_dependencies
