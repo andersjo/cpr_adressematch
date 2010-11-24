@@ -15,4 +15,14 @@ class TestCprDoc < Test::Unit::TestCase
       assert_equal name, row['Adrnvn']
     end
   end
+
+  def test_groups
+    doc = Cpr::RespDocument.from_file("data/cpr_uddata_eksempel.txt")
+    counts = {}
+    doc.groups.each do |name,rows|
+      counts[name] = rows.count
+    end
+    assert_equal 1, doc.groups.keys.size
+    assert_equal 8, counts["Resp001"]
+  end
 end

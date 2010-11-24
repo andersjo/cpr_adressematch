@@ -25,7 +25,7 @@ class TestCprRow < Test::Unit::TestCase
   def test_fill
     @row.field 'f1', 'A', 0..2
     @row.field 'f1', 'N', 3..5
-    assert_equal "   000", @row.fill
+    assert_equal "      ", @row.fill
   end
   
   def test_field_by_name_existing_and_non_existing
@@ -37,7 +37,7 @@ class TestCprRow < Test::Unit::TestCase
   def test_read_field
     @row.field 'f1', 'N', 0..2
     instance = @row.new
-    assert_equal 0, instance['f1']
+    assert_equal nil, instance['f1']
   end
 
   def test_write_field

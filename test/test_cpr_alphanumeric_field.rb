@@ -2,11 +2,6 @@
 require 'helper'
 
 class TestCprAlphanumericField < Test::Unit::TestCase
-  def test_fill
-    f = Cpr::AlphanumericField.new('f1', 0..4)
-    assert_equal " "*5, f.fill
-  end
-
   def test_read_welformed_string
     f = Cpr::Field.create_type('A', 'f1', 3..5)
     assert_equal "ABC", f.read("XXXABCXXXX")

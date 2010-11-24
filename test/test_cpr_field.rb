@@ -10,4 +10,9 @@ class TestCprField < Test::Unit::TestCase
     }
   end
 
+  def test_fill
+    f1 = Cpr::Field.create_type('A', 'f1', 0..10)
+    assert_equal " "*11, f1.fill 
+  end
+
 end

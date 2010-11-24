@@ -2,6 +2,7 @@
 require 'pathname'
 module Cpr
   class Row
+    include Kunderefnr
     attr_reader :data
     def initialize(data = nil)
       if data

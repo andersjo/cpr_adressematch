@@ -21,7 +21,7 @@ module Cpr
       if @default != nil
         cast_for_write @default
       else
-        @range.map { fill_char }*""
+        " "*length
       end
     end
 

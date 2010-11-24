@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{cpr_adressematch}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Anders Johannsen"]
-  s.date = %q{2010-07-15}
+  s.date = %q{2010-10-27}
   s.description = %q{Interface for generating and parsing the Danish CPR Registry data files.
     Support the 'adressematch' protocol, which can be used to query by name and adress as well as
     by the personal identifical number (CPR)
@@ -20,24 +20,59 @@ Gem::Specification.new do |s|
      "README.rdoc"
   ]
   s.files = [
-    ".document",
-     ".gitignore",
-     "LICENSE",
+    "LICENSE",
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "lib/cpr/adressematch/req1100.rb",
+     "lib/cpr/adressematch/req1200.rb",
+     "lib/cpr/adressematch/req1300.rb",
+     "lib/cpr/adressematch/req1400.rb",
+     "lib/cpr/adressematch/resp000.rb",
+     "lib/cpr/adressematch/resp001.rb",
+     "lib/cpr/adressematch/resp001a.rb",
+     "lib/cpr/adressematch/resp002.rb",
+     "lib/cpr/adressematch/resp003.rb",
+     "lib/cpr/adressematch/resp004.rb",
+     "lib/cpr/adressematch/resp005.rb",
+     "lib/cpr/adressematch/resp010.rb",
+     "lib/cpr/adressematch/resp011.rb",
+     "lib/cpr/adressematch/resp012.rb",
+     "lib/cpr/adressematch/resp013.rb",
+     "lib/cpr/adressematch/resp901.rb",
+     "lib/cpr/adressematch/resp902.rb",
+     "lib/cpr/adressematch/resp903.rb",
+     "lib/cpr/adressematch/resp910.rb",
+     "lib/cpr/adressematch/resp998.rb",
+     "lib/cpr/adressematch/resp999.rb",
+     "lib/cpr/alphanumeric_field.rb",
+     "lib/cpr/class_generator.rb",
+     "lib/cpr/field.rb",
+     "lib/cpr/kunderefnr.rb",
+     "lib/cpr/numeric_field.rb",
+     "lib/cpr/req_document.rb",
+     "lib/cpr/resp_document.rb",
+     "lib/cpr/row.rb",
      "lib/cpr_adressematch.rb",
      "test/helper.rb",
-     "test/test_cpr_adressematch.rb"
+     "test/test_cpr_adressematch.rb",
+     "test/test_cpr_adressematch_resp001.rb",
+     "test/test_cpr_alphanumeric_field.rb",
+     "test/test_cpr_field.rb",
+     "test/test_cpr_numeric_field.rb",
+     "test/test_cpr_req_document.rb",
+     "test/test_cpr_resp_document.rb",
+     "test/test_cpr_row.rb"
   ]
   s.homepage = %q{http://github.com/andersjo/cpr_adressematch}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.6}
+  s.rubygems_version = %q{1.3.7}
   s.summary = %q{Interface for generating and parsing the Danish CPR Registry data files}
   s.test_files = [
     "test/helper.rb",
      "test/test_cpr_adressematch.rb",
+     "test/test_cpr_adressematch_resp001.rb",
      "test/test_cpr_alphanumeric_field.rb",
      "test/test_cpr_field.rb",
      "test/test_cpr_numeric_field.rb",
@@ -50,7 +85,7 @@ Gem::Specification.new do |s|
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
-    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
     else
     end
   else

@@ -8,7 +8,7 @@ class Req1100 < Cpr::Row
 	field 'Kunderefnr', 'A', 6..20
 	field 'Sortbyte', 'A', 21..21, :default => '4'
 	field 'Matchtyp', 'A', 22..22
-	field 'Pnrsenrmrk', 'A', 23..23
+	field 'Pnrsenrmrk', 'A', 23..23, :default => 'P'
 	field 'Matchnvn', 'A', 24..73
 	field 'Suplnvn', 'A', 74..123
 	field 'Formelnvn', 'A', 124..173
