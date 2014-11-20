@@ -13,7 +13,7 @@ module Cpr
     end
 
     def write(raw, value)
-      raw[range] = cast_for_write(value).encode("iso-8859-1")[0...length]
+      raw[range] = cast_for_write(value).encode(Encoding::ISO_8859_1, undef: :replace, invalid: :replace)[0...length]
       raw
     end
 
