@@ -1,9 +1,19 @@
+# encoding: utf-8
+
 require 'rubygems'
+require 'bundler'
+begin
+  Bundler.setup(:default, :development)
+rescue Bundler::BundlerError => e
+  $stderr.puts e.message
+  $stderr.puts "Run `bundle install` to install missing gems"
+  exit e.status_code
+end
 require 'rake'
 
-begin
-  require 'jeweler'
-  Jeweler::Tasks.new do |gem|
+require 'jeweler'
+Jeweler::Tasks.new do |gem|
+  # gem is a Gem::Specification... see http://guides.rubygems.org/specification-reference/ for more options
     gem.name = "cpr_adressematch"
     gem.summary = %Q{Interface for generating and parsing the Danish CPR Registry data files}
     gem.description = %Q{Interface for generating and parsing the Danish CPR Registry data files.
@@ -14,12 +24,11 @@ begin
     gem.homepage = "http://github.com/andersjo/cpr_adressematch"
     gem.authors = ["Anders Johannsen"]
     gem.files = FileList['lib/**/*.rb', 'bin/*', '[A-Z]*', 'test/**/*'].to_a
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
-  end
-  Jeweler::GemcutterTasks.new
-rescue LoadError
-  puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
+  # dependencies defined in Gemfile
 end
+Jeweler::RubygemsDotOrgTasks.new
+
+
 
 require 'rake/testtask'
 Rake::TestTask.new(:test) do |test|
@@ -54,12 +63,12 @@ task :test => :check_dependencies
 
 task :default => :test
 
-require 'rake/rdoctask'
+require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "cpr_adressematch #{version}"
+  rdoc.title = "cpr_adressematch2 #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
